@@ -1,4 +1,5 @@
 import Index from './pages/Index.vue';
+import List from './pages/List.vue';
 
 import HomePage from './pages/home.vue';
 import AboutPage from './pages/about.vue';
@@ -13,6 +14,10 @@ export default [
   {
     path: '/',
     component: Index,
+  },
+  {
+    path: '/lists/:id',
+    component: List,
   },
   {
     path: '/panel-left/',
