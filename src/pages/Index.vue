@@ -19,9 +19,28 @@
       </f7-list>
     </f7-block>
     <f7-popup ref="popupNewList">
-      <f7-block>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt alias quae minima eius qui laborum consequuntur, nesciunt autem, assumenda maiores, repellendus doloremque ipsam sed illum veritatis. Aperiam necessitatibus, doloribus tenetur.</p>
-      </f7-block>
+      <f7-view>
+        <f7-page>
+          <f7-navbar title="Nueva lista">
+            <f7-nav-right>
+              <f7-link popup-close>Cerrar</f7-link>
+            </f7-nav-right>
+          </f7-navbar>
+          <f7-list form>
+            <f7-list-item>
+              <f7-label>Nombre</f7-label>
+              <f7-input type="text"
+                        placeholder="Lista de compras..."
+                        :value="name"
+                        @input="name = $event.target.value"
+                        ></f7-input>
+            </f7-list-item>
+            <f7-list-item>
+              <f7-button raised fill @click="createList">Crear</f7-button>
+            </f7-list-item>
+          </f7-list>
+        </f7-page>
+      </f7-view>
     </f7-popup>
     <f7-fab color="blue" raised @click="newList">
       <f7-icon f7="add"></f7-icon>
@@ -30,9 +49,23 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      name: '',
+    }
+  },
   methods: {
     newList() {
-      this.$f7.popup(this.$refs.popupNewList).open(true)
+      this.getNewListPopup().open(true)
+    },
+    createList() {
+      this.getNewListPopup().close(true)
+
+      
+      this.name = ''
+    },
+    getNewListPopup() {
+      return this.$f7.popup.get(this.$refs.popupNewList.$el)
     }
   }
 }
