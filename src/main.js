@@ -17,18 +17,18 @@ Vue.use(Framework7Vue, Framework7)
 new Vue({
   el: '#app',
   template: '<app/>',
-  // Init Framework7 by passing parameters here
   framework7: {
-    id: 'io.framework7.testapp', // App bundle ID
-    name: 'Framework7', // App name
-    theme: 'auto', // Automatic theme detection
-    // App routes
+    id: 'io.theapp.testapp',
+    name: 'TheApp',
+    theme: 'auto',
     routes: Routes,
     panel: {
       swipe: 'left',
-    }
+    },
+    view: {
+      pushState: true,
+    },
   },
-  // Register App Component
   components: {
     app: App
   },

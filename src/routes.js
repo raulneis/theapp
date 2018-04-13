@@ -1,5 +1,7 @@
 import Index from './pages/Index.vue';
 import List from './pages/List.vue';
+import NewList from './pages/NewList.vue';
+import NewItem from './pages/NewItem.vue';
 
 import HomePage from './pages/home.vue';
 import AboutPage from './pages/about.vue';
@@ -16,6 +18,14 @@ export default [
     component: Index,
   },
   {
+    path: '/lists/new',
+    component: NewList,
+  },
+  {
+    path: '/lists/:id/items/new',
+    component: NewItem,
+  },
+  {
     path: '/lists/:id',
     component: List,
   },
@@ -23,22 +33,22 @@ export default [
     path: '/panel-left/',
     component: PanelLeftPage,
   },
-  {
-    path: '/panel-right/',
-    component: PanelRightPage,
-  },
-  {
-    path: '/about/',
-    component: AboutPage,
-  },
-  {
-    path: '/form/',
-    component: FormPage,
-  },
-  {
-    path: '/dynamic-route/blog/:blogId/post/:postId/',
-    component: DynamicRoutePage,
-  },
+  // {
+  //   path: '/panel-right/',
+  //   component: PanelRightPage,
+  // },
+  // {
+  //   path: '/about/',
+  //   component: AboutPage,
+  // },
+  // {
+  //   path: '/form/',
+  //   component: FormPage,
+  // },
+  // {
+  //   path: '/dynamic-route/blog/:blogId/post/:postId/',
+  //   component: DynamicRoutePage,
+  // },
   {
     path: '(.*)',
     component: NotFoundPage,
