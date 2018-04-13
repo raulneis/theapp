@@ -30,7 +30,7 @@ export default [
     component: List,
   },
   {
-    path: '/panel-left/',
+    path: '/panel-left',
     component: PanelLeftPage,
   },
   // {

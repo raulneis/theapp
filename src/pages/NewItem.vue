@@ -79,6 +79,7 @@ export default {
   mounted() {
     firebase.database().ref('lists/' + this.key).on('value', (snapshot) => {
       this.list = snapshot.val()
+      console.log(this.list)
     })
   }
 }

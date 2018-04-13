@@ -25,8 +25,8 @@
           </f7-card>
         </f7-block>
         <f7-block>
-          <f7-list v-if="list.items && list.items.length">
-            <f7-list-item v-for="item in list.items" :title="item.name" :key="item['.key']"></f7-list-item>
+          <f7-list v-if="list.items && Object.keys(list.items).length">
+            <f7-list-item v-for="item, key in list.items" :title="item.name" :key="key"></f7-list-item>
           </f7-list>
           <p v-else>No hay elementos en la lista</p>
         </f7-block>
@@ -137,6 +137,7 @@ export default {
   mounted() {
     firebase.database().ref('lists/' + this.key).on('value', (snapshot) => {
       this.list = snapshot.val()
+      console.log(this.list)
       this.name = this.list ? this.list.name : ''
       this.description = this.list ? this.list.description : ''
     })
